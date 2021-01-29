@@ -22,9 +22,9 @@ public class OcrApplication {
 		try {
 			Tesseract tesse = new Tesseract();
 			tesse.setDatapath(root_traindata_path.getFileName().toString()); // set ที่อยู่ traindata
-			tesse.setLanguage("tha"); // OCR ด้วยภาษาไทย
+			tesse.setLanguage("thainoi"); // OCR ด้วยภาษาไทย
 			// tesse.setOcrEngineMode(1); // set OCR Engine mode เป็น LSTM
-			String fullText = tesse.doOCR(new File(input_file_Path.getFileName().toString() + "/a.jpg")); // ทำการแปลงจาก
+			String fullText = tesse.doOCR(new File(input_file_Path.getFileName().toString() + "/t8.png")); // ทำการแปลงจาก
 			// รูป เป็น
 			// text
 			System.out.println(fullText);
@@ -38,7 +38,7 @@ public class OcrApplication {
 	public static String writeFile(String text) {
 		Path output_file_path = Paths.get("output");
 		try {
-			Files.write(Paths.get(output_file_path.getFileName().toString() + "/o1.txt"), text.getBytes()); // เขียนไฟล์
+			Files.write(Paths.get(output_file_path.getFileName().toString() + "/o.txt"), text.getBytes()); // เขียนไฟล์
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
